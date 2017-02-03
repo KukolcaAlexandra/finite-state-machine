@@ -135,7 +135,11 @@ class FSM {
             this.indexUndo--;
             return false;
         } else{
-            this.state = this.hist[this.hist.length-this.indexUndo];
+            for(var i in this.hist){
+                if(this.state == this.hist[i]){
+                    this.state = this.hist[i-1];
+                }
+            }
             return true;
         }
 
